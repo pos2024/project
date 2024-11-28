@@ -1,0 +1,14 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# Build directories (Frontend)
+frontend/build/
+
+# NPM package lock files
+package-lock.json
