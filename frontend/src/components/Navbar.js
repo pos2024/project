@@ -1,29 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useModal } from '../context/ModalContext'; 
 import Login from './Login';
-import { useAuth } from '../context/AuthContext'; // Import useAuth hook
+import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { openModal, closeModal } = useModal(); // Import closeModal
-  const { authToken, logout } = useAuth(); // Access authToken and logout method from context
+  const { openModal, closeModal } = useModal();
+  const { authToken, logout } = useAuth(); 
+  const [isScrolled, setIsScrolled] = useState(false); // To track scroll position
 
   const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   const openLoginModal = () => {
-    openModal(<Login closeModal={closeModal} />); // Pass closeModal to Login component
+    openModal(<Login closeModal={closeModal} />); 
   };
 
   const handleLogout = () => {
-    logout();  // Call the logout function from AuthContext
+    logout();  
   };
 
-  // Check if the user is logged in by checking the authToken
   const isLoggedIn = Boolean(authToken);
 
+  // Track scroll position and update isScrolled state
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true); // Change to solid background after 50px scroll
+      } else {
+        setIsScrolled(false); // Transparent background when at the top
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="bg-gray-800 text-white py-4">
+    <nav
+      className={`fixed w-full py-4 z-30 transition-all ${isScrolled ? 'bg-white text-black' : 'bg-transparent text-white'}`}
+    >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <div className="text-2xl font-bold">
           <Link to="/">Logo</Link>
