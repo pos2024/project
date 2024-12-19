@@ -21,23 +21,25 @@ const HeroSection = () => {
   >
       <div className="h-full flex items-center justify-center ">
         {/* Left Section */}
-        <div className="text-center lg:text-left lg:w-1/2 px-8">
-          <h1 className="text-8xl font-bold text-black mb-4">
-            Natural & Pure Drinking Water
-          </h1>
-          <p className="text-xl text-black mb-6">
-            Mineral Composition <br /> Experience clean, reliable, and
-            affordable hydration solutions.
-          </p>
-          <div className="flex flex-wrap justify-center lg:justify-start space-x-4">
-            <button className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg">
-              More About Us
-            </button>
-            <button className="bg-white hover:bg-gray-200 text-blue-600 px-6 py-3 rounded-lg shadow-lg">
-              Contact Us
-            </button>
-          </div>
-        </div>
+  
+<div className="text-center lg:text-left lg:w-1/2 px-8">
+  <h1 className="text-8xl font-bold text-black mb-4">
+    Refresh Your Day with Pure Water
+  </h1>
+  <p className="text-xl text-black mb-6">
+    Nature’s Best Hydration <br /> Discover the cleanest, healthiest, and most refreshing water for your body.
+  </p>
+
+  <div className="flex flex-wrap justify-center lg:justify-start space-x-4">
+    <button className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg">
+      More About Us
+    </button>
+    <button className="bg-white hover:bg-gray-200 text-blue-600 px-6 py-3 rounded-lg shadow-lg">
+      Contact Us
+    </button>
+  </div>
+</div>
+
 
         {/* Right Section */}
 
